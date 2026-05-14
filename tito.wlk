@@ -1,18 +1,27 @@
 import bebidas.*
 object tito {
-  var sustanciaActual = whisky
-  var dosisConsumida = 0
- 
-  method peso() = 70
-  method inerciaBase() = 490
-  method velocidad() = self.rendimiento() * self.inerciaBase() / self.peso() 
-  method rendimiento() = sustanciaActual.rendimientoQueOtorga(dosisConsumida)
-  method sustanciaActual() = sustanciaActual
-  method dosisConsumida() = dosisConsumida
 
-  method consumir(cantidad, bebida) {
-    sustanciaActual = bebida
-    dosisConsumida = cantidad
+  var bebidaActual = terere
+  var estaVivo = true
+
+  method peso() = 70
+
+  method estaVivo() = estaVivo
+
+  method bebidaActual() = bebidaActual
+
+  method reemplazarBebida(unaBebida) {
+    bebidaActual = unaBebida
   }
-  
+
+  method ingerirBebida(cantidadIngerida) {
+
+    if (self.bebidaActual().esCianuro()) {
+      estaVivo = false
+    }
+  }
+
+  method rendimiento(cantidadIngerida) {
+    return self.bebidaActual().rendimiento(cantidadIngerida)
+  }
 }

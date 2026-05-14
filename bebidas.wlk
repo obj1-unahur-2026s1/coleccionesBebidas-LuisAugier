@@ -1,11 +1,13 @@
 object whisky {
-  method rendimientoQueOtorga(dosisConsumida) = 0.9 ** dosisConsumida
+  method rendimiento(cantidadIngerida) = 0.9 ** cantidadIngerida
 }
 
 object terere {
-  method rendimientoQueOtorga(dosisConsumida) = 1.max(0.1 * dosisConsumida)
+  method rendimiento(cantidadIngerida) {
+    return max(1, 0.1 * cantidadIngerida)
+  }
 }
 
 object cianuro {
-  method rendimientoQueOtorga(dosisConsumida) = 0
+  method rendimiento(cantidadIngerida) = 0
 }
